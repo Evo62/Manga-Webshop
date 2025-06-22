@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Epic World</title>
+        </head>
+        <body>
+            
+  <div class="nav-links">
+  <input type="button" id="nodeGoto-home" value="Home"  onclick="showSection('home')" />
+  <input type="button" id="nodeGoto-manga"  value="Manga"   onclick="showSection('manga')" />
+  <input type="button" id="nodeGoto-games"  value="Games"   onclick="showSection('games')" />
+  <input type="button" id="nodeGoto-comics" value="Comics"  onclick="showSection('comics')" />
+  <input type="button" id="nodeGoto-anmelden" value="Anmelden"  onclick="showSection('Anmelden')" />
+
+ 
+   <div class="cart-container"> 
+    <input
+      type="button"
+      id="nodeGoto-cart"
+      value="🛒"
+      onclick="showSection('cart')"
+      aria-label="Warenkorb"
+    />
+    <span class="amount">0</span>
+  </div>
+</div>
+
+  <script>
+  // Blendet alle Sektionen aus, und zeigt nur die eine an
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    const tgt = document.getElementById(id);
+    if (tgt) tgt.classList.add('active');
+  }
+
+  // Ganz simples logout-Stub
+  function logout() {
+    // Später hier deine Session-Logik
+    showSection('home');
+  }
+</script>
+
+
+             
+   <div class="header">
+    <h1 id="logo" onclick="changeToHomeScreen()">Epic World</h1>
+   </div>
+<div id="home" class="section active">
+    <div class="card">
+        <p>Ihr Online-Shop für Gaming, Mangas und Comics.</p>
+</div>
+
+<div id="serach-bar-wrapper">
+    <input id="search-bar" type="text">
+</div>
+
+<div class="account-dropdown">
+    <a href="myoders.html">Meine Bestellungen</a>
+    <a href="myaccount.html">Mein Account</a>
+
+</div>
+
+              
+       <!-- Login Section -->
+       <div id="login" class="section">
+        <div class="grid">
+            <div class="card">
+                <h2>Anmelden</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">E-Mail:</label>
+                        <input type="email" id="loginEmail" required aria-describedby="loginEmailHelp">
+                        <small id="loginEmailHelp">Geben Sie Ihre registrierte E-Mail-Adresse ein</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Passwort:</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Anmelden</button>
+                </form>
+            </div>
+
+            <div class="card"> 
+              <h2>Registrieren</h2>
+              <form id="registerForm">
+                  <div class="form-group">
+                      <label for="regEmail">E-Mail:</label>
+                      <input type="email" id="regEmail" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="regFirstName">Vorname:</label>
+                      <input type="text" id="regFirstName" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="regLastName">Nachname:</label>
+                      <input type="text" id="regLastName" required>
+                  </div>
+                  <div class="form-group">
+                      <label for="regPassword">Passwort:</label>
+                      <input type="password" id="regPassword" required minlength="6">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Registrieren</button>
+              </form>
+          </div>
+      </div>
+  </div>
+
+   <!-- Products Section -->
+   <div id="products" class="section">
+    <div class="card">
+        <h2>Produktkatalog</h2>
+        
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="productSearch" class="search-input" placeholder="Produkte suchen..." oninput="filterProducts()" aria-label="Produktsuche">
+        </div>
+        
+        <div id="productGrid" class="product-grid"></div>
+    </div>
+</div>
+
+ <!-- Warenkorb -->
+ <div id="cart" class="section">
+  <div class="card">
+      <h2>Warenkorb</h2>
+      <div id="cartContent">
+          <p>Ihr Warenkorb ist leer.</p>
+      </div>
+      <div id="cartTotal" style="display: none;">
+          <h3>Gesamtsumme: <span id="totalAmount">0.00</span> €</h3>
+          <button class="btn btn-primary" onclick="checkout()">Kaufen</button>
+      </div>
+  </div>
+</div>
+
+<!-- User Profile Section -->
+<div id="profile" class="section">
+  <div class="grid">
+      <div class="card">
+          <h2>Meine Bewertungen</h2>
+          <div id="userReviews"></div>
+      </div>
+      
+      <div class="card">
+          <h2>Meine Käufe</h2>
+          <div id="userPurchases"></div>
+      </div>
+  </div>
+</div>
+
+<!-- Admin Section -->
+<div id="admin" class="section">
+  <div class="grid">
+      <div class="card">
+          <h2>Produktverwaltung</h2>
+          <form id="productForm">
+              <div class="form-group">
+                  <label for="prodName">Produktname:</label>
+                  <input type="text" id="prodName" required>
+              </div>
+              <div class="form-group">
+                  <label for="prodDesc">Beschreibung:</label>
+                  <textarea id="prodDesc" rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                  <label for="prodPrice">Preis (€):</label>
+                  <input type="number" id="prodPrice" step="0.01" required>
+              </div>
+              <div class="form-group">
+                  <label for="prodStock">Lagerbestand:</label>
+                  <input type="number" id="prodStock" required>
+              </div>
+              <div class="form-group">
+                  <label for="prodCategory">Kategorie:</label>
+                  <select id="prodCategory">
+                      <option value="gaming">Gaming</option>
+                      <option value="manga">Manga</option>
+                      <option value="bücher">Bücher</option>
+                      <option value="Comics">Comics</option>
+                  </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Produkt hinzufügen</button>
+              <button type="button" class="btn btn-secondary" onclick="clearProductForm()">Zurücksetzen</button>
+          </form>
+      </div>
+
+      <div class="card">
+        <h2>Benutzerverwaltung</h2>
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="userSearch" class="search-input" placeholder="Benutzer suchen..." oninput="filterUsers()" aria-label="Benutzersuche">
+        </div>
+        <div id="userList"></div>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Alle Produkte verwalten</h2>
+    <div id="adminProductList"></div>
+
+    <script src="script.js" ></script>
+     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        </body>
+        
+    
+</html>

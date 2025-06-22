@@ -1,0 +1,75 @@
+[
+  {
+    "name": "Batman 2",
+    "author": "Frank Miller",
+    "publisher": "DC Comics",
+    "stock": "10",
+    "description": "Ein düsterer Rückblick auf Batmans ersten Jahr als Verbrechensbekämpfer in Gotham City.",
+    "price": "12.29",
+    "created_at": "10.06.2025",
+    "image": "",
+    "fsk": "12",
+    "category": "comics"
+  },
+  {
+    "title": "The Amazing Spider-Man",
+    "author": "David Morrell",
+    "publisher": "Marvel Comics",
+    "stock": "20",
+    "description": "Dieser Band widmet sich dem guten alten Peter Parker! In Storys mit Artwork von Klaus Janson und Lee Weeks verschlägt es den einzig wahren Spider-Man in ein Schurken-Krankenhaus. Zudem geraten Spidey und MJ in ein apokalyptisches Verwirrspiel der Fantastic Four, Black Cat geht auf Diebestour und Pete muss in einem Schneesturm um Tante Mays Leben kämpfen .",
+    "price": "16.99",
+    "created_at": "09.09.2016",
+    "image": "",
+    "fsk": "12",
+    "category": "comics"
+  },
+  {
+    "title": "The Last of Us",
+    "author": "Naughty Dog",
+    "publisher": "Sony Computer Entertainment",
+    "stock": "7",
+    "description": "The Last of Us  ist eine Geschichte über eine postapokalyptische Welt, die von einem Pilz namens Cordyceps befallen wurde, der Menschen in zombieartige Kreaturen verwandelt. Der Protagonist Joel wird beauftragt, das Mädchen Ellie, das immun gegen die Infektion ist, durch die USA zu eskortieren, um einen Impfstoff zu finden. Die Reise wird zu einer existenziellen Reise, auf der sie sich mit den Gefahren der infizierten Welt und den Überlebenden auseinandersetzen müssen.",
+    "price": "20.99",
+    "created_at": "14.06.2015",
+    "image": "",
+    "fsk": "18",
+    "category": "games"
+  },
+ {
+    "title": "Watch Dogs",
+    "author": "Kevin Shortt",
+    "publisher": "Ubisoft",
+    "stock": "10",
+    "description": "In einem fiktiven Chicago der nahen Zukunft ist ein übergreifendes Computernetzwerk namens ctOS (central Operating System) in Betrieb. Der Spieler schlüpft in die Rolle des polizeilich gesuchten irisch-amerikanischen Hackers Aiden Pearce. Du spielst Aiden Pearce, einen brillanten Hacker und ehemaligen Gangster, dessen kriminelle Vergangenheit zu einer blutigen Familientragödie führte. Jetzt bist du auf der Jagd nach den Leuten, die deiner Familie Leid zugefügt haben, und du hast die Möglichkeit jeden in deinem Umfeld zu überwachen und zu hacken, indem du alles manipulierst, was mit dem Netzwerk der Stadt verbunden ist. Greife auf die allgegenwärtigen Überwachungskameras zu, lade persönliche Informationen herunter, um eine Zielperson zu finden, kontrolliere Ampeln und öffentliche Verkehrsmittel… und vieles mehr. Nutze die Stadt Chicago als deine ultimative Waffe und nimm auf deine persönliche Art Rache.",
+    "price": "10.99",
+    "created_at": "10.06.2014",
+    "image": "",
+    "fsk": "18",
+    "category": "games"
+  },
+
+  {
+    "title": "Death Note, Vol. 1",
+    "author": "Tsugumi Ohba",
+    "publisher": "Shueisha",
+    "stock": "5",
+    "description": "Die Geschichte handelt von Light Yagami, einem brillanten Schüler, der ein mysteriöses Notizbuch, das Death Note, findet. Dieses Notizbuch gehört einem Shinigami (Todesgott) und verleiht dem Benutzer die Macht, Menschen zu töten, indem er ihren Namen in das Buch schreibt. Light beschließt, die Welt von Kriminellen zu säubern und beginnt, Verbrecher zu töten, um eine neue, gerechtere Welt zu schaffen. Dies zieht die Aufmerksamkeit des mysteriösen Detektivs L auf sich, der versucht, Kira, wie Light sich selbst nennt, zu stoppen und den Fall zu lösen",
+    "price": "9.99",
+    "releaseDate": "01.12.2003",
+    "image": "",
+    "fsk": "16",
+    "category": "manga"
+  },
+  {
+    "title": "Tokyo Ghoul, Vol. 1",
+    "author": "Sui Ishida",
+    "publisher": "Shueisha",
+    "stock": "20",
+    "description": "Ken Kaneki wird zur Hälfte Mensch, zur Hälfte Ghoul und muss nun in einer Welt voller fie­sen Monster-Menschen um sein Überleben kämpfen.",
+    "price": "9.99",
+    "releaseDate": "08.09.2011",
+    "image": "",
+    "fsk": "16",
+    "category": "manga"
+  }
+]
