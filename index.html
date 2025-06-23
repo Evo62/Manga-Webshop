@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Manga & Comic Shop</title>
+  <link rel="stylesheet" href="html/css/style.css">
+  <style>
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(to right, #ff3366, #ff6699);
+      color: white;
+      border-radius: 0 0 30px 30px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    .hero button {
+      margin-top: 20px;
+      background-color: white;
+      color: #ff3366;
+      font-weight: bold;
+    }
+
+    .categories {
+      display: flex;
+      gap: 20px;
+      margin-top: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .category-card {
+      background-color: white;
+      padding: 20px;
+      width: 260px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .category-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .category-card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+  <nav>
+    <a href="html/productsList.html">Produkte</a>
+    <a href="html/myAccount.html">Mein Konto</a>
+    <a href="html/myOrders.html">Bestellungen</a>
+    <a href="html/shoppingCard.html">Warenkorb</a>
+  </nav>
+</head>
+<body>
+
+<header>
+  <h1>Manga & Comic Shop</h1>
+
+</header>
+
+<main>
+  <!-- Hero-Bereich -->
+  <section class="hero">
+    <h1>Willkommen bei MangaStore!</h1>
+    <p>Entdecke deine Lieblings-Mangas, Comics und Games</p>
+    <a href="html/productsList.html">
+      <button>Jetzt stöbern</button>
+    </a>
+  </section>
+
+  <!-- Kategorien / Highlights -->
+  <section class="categories">
+    <div class="category-card">
+      <img src="html/img/manga.jpg" alt="Manga">
+      <h3>Manga</h3>
+    </div>
+    <div class="category-card">
+      <img src="html/img/comic.jpg" alt="Comic">
+      <h3>Comics</h3>
+    </div>
+    <div class="category-card">
+      <img src="html/img/game.jpg" alt="Games">
+      <h3>Games</h3>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 MangaStore</p>
+</footer>
+
+</body>
+</html>

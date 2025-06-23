@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Suchergebnisse</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+    .search-filter {
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .search-filter select,
+    .search-filter input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+<header>
+    <h1>Suchergebnisse</h1>
+    <nav>
+        <a href="productsList.html">Produkte</a>
+        <a href="myAccount.html">Mein Konto</a>
+        <a href="myOrders.html">Meine Bestellungen</a>
+        <a href="shoppingCard.html">Warenkorb</a>
+    </nav>
+</header>
+
+<main class="search-results">
+    <h2>Ergebnisse für: <em>"Naruto"</em></h2>
+
+    <div class="search-filter">
+        <input type="text" placeholder="Nach Titel suchen…">
+        <select>
+            <option>Alle Kategorien</option>
+            <option>Manga</option>
+            <option>Comic</option>
+            <option>Game</option>
+        </select>
+        <select>
+            <option>Sortieren nach</option>
+            <option>Preis aufsteigend</option>
+            <option>Preis absteigend</option>
+            <option>Beliebtheit</option>
+        </select>
+        <button>Filtern</button>
+    </div>
+
+    <div class="product-list">
+        <div class="product-card">
+            <img src="../img/naruto1.jpg" alt="Naruto Band 1">
+            <h3>Naruto Band 1</h3>
+            <p>Preis: 9,99 €</p>
+            <a href="products.html"><button>Details ansehen</button></a>
+        </div>
+
+        <div class="product-card">
+            <img src="../img/naruto2.jpg" alt="Naruto Band 2">
+            <h3>Naruto Band 2</h3>
+            <p>Preis: 9,99 €</p>
+            <a href="products.html"><button>Details ansehen</button></a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 MangaStore</p>
+</footer>
+</body>
+</html>

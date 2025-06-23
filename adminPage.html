@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Adminbereich</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .tabs {
+      display: flex;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+    .tab-button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #ddd;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .tab-button.active {
+      background-color: #ff3366;
+      color: white;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Adminbereich</h1>
+  <nav>
+    <a href="productsList.html">Produkte</a>
+    <a href="adminPage.html" class="active">Admin</a>
+    <a href="myAccount.html">Mein Konto</a>
+  </nav>
+</header>
+
+<main>
+  <h2>Admin-Dashboard</h2>
+
+  <div class="tabs">
+    <button class="tab-button active" onclick="showTab('produkte')">Produkte</button>
+    <button class="tab-button" onclick="showTab('benutzer')">Benutzer</button>
+    <button class="tab-button" onclick="showTab('lager')">Lagerbestand</button>
+  </div>
+
+  <section id="produkte" class="tab-content active">
+    <h3>Produktverwaltung</h3>
+    <form>
+      <label>Produktname:</label>
+      <input type="text">
+      <label>Preis:</label>
+      <input type="number">
+      <label>Beschreibung:</label>
+      <textarea></textarea>
+      <label>Bild-URL:</label>
+      <input type="text">
+      <button>Produkt hinzufügen</button>
+    </form>
+  </section>
+
+  <section id="benutzer" class="tab-content">
+    <h3>Benutzerverwaltung</h3>
+    <ul>
+      <li>evren@example.com <button class="danger">Löschen</button></li>
+      <li>kunde@web.de <button class="danger">Löschen</button></li>
+    </ul>
+  </section>
+
+  <section id="lager" class="tab-content">
+    <h3>Lagerbestand aktualisieren</h3>
+    <form>
+      <label>Produkt auswählen:</label>
+      <select>
+        <option>One Piece Band 1</option>
+        <option>Naruto Band 2</option>
+      </select>
+      <label>Neuer Lagerbestand:</label>
+      <input type="number" min="0">
+      <button>Aktualisieren</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 MangaStore</p>
+</footer>
+
+<script>
+  function showTab(id) {
+    const buttons = document.querySelectorAll('.tab-button');
+    const contents = document.querySelectorAll('.tab-content');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    contents.forEach(tab => tab.classList.remove('active'));
+    document.querySelector(`#${id}`).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+</body>
+</html>

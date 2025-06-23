@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Mein Konto</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .role-switch {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Manga & Comic Shop</h1>
+  <nav>
+    <a href="productsList.html">Produkte</a>
+    <a href="myOrders.html">Meine Bestellungen</a>
+    <a href="myAccount.html" class="active">Mein Konto</a>
+    <a href="shoppingCard.html">Warenkorb</a>
+  </nav>
+</header>
+
+
+<main>
+  <h2>Mein Konto</h2>
+
+  <!-- 🔁 Rollen-Umschalter -->
+  <div class="role-switch">
+    <label for="role">Angemeldet als:</label>
+    <select id="role" onchange="switchRole()">
+      <option value="admin">Admin</option>
+      <option value="kunde">Kunde</option>
+    </select>
+  </div>
+
+  <!-- 👤 Allgemeine Nutzerdaten -->
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" value="Evren Yalcin">
+
+    <label for="email">E-Mail:</label>
+    <input type="email" id="email" value="evren@example.com">
+
+    <label for="password">Passwort ändern:</label>
+    <input type="password" id="password" placeholder="Neues Passwort">
+
+    <button type="submit">Änderungen speichern</button>
+  </form>
+
+  <!-- ❌ Account löschen -->
+  <section class="account-delete">
+    <h3>Account löschen</h3>
+    <p>Du kannst deinen Account unwiderruflich löschen:</p>
+    <button class="danger">Account löschen</button>
+  </section>
+
+  <!-- 👑 Nur sichtbar als Admin -->
+  <section class="admin-section" id="admin-section">
+    <h3>Admin-Bereich</h3>
+    <ul>
+      <li><a href="adminPage.html">Produkte verwalten</a></li>
+      <li><a href="#">Benutzer bearbeiten</a></li>
+      <li><a href="#">Benutzer löschen</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 MangaStore</p>
+</footer>
+
+<script>
+  function switchRole() {
+    const role = document.getElementById('role').value;
+    const adminSection = document.getElementById('admin-section');
+    adminSection.style.display = role === 'admin' ? 'block' : 'none';
+  }
+
+  // Init beim Laden
+  window.onload = switchRole;
+</script>
+</body>
+</html>

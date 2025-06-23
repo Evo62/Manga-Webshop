@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Warenkorb</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <h1>Warenkorb</h1>
+    <nav>
+        <a href="productsList.html">Produkte</a>
+        <a href="myAccount.html">Mein Konto</a>
+        <a href="myOrders.html">Meine Bestellungen</a>
+        <a href="shoppingCard.html" class="active">Warenkorb</a>
+    </nav>
+</header>
+
+<main class="cart">
+    <h2>Dein Warenkorb</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Produkt</th>
+            <th>Menge</th>
+            <th>Einzelpreis</th>
+            <th>Gesamt</th>
+            <th>Aktion</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Naruto Band 1</td>
+            <td><input type="number" value="2" min="1"></td>
+            <td>9,99 €</td>
+            <td>19,98 €</td>
+            <td><button class="danger">Entfernen</button></td>
+        </tr>
+        <tr>
+            <td>One Piece Band 1</td>
+            <td><input type="number" value="1" min="1"></td>
+            <td>8,99 €</td>
+            <td>8,99 €</td>
+            <td><button class="danger">Entfernen</button></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p><strong>Gesamtsumme: 28,97 €</strong></p>
+    <button>Zur Kasse</button>
+</main>
+
+<footer>
+    <p>&copy; 2025 MangaStore</p>
+</footer>
+</body>
+</html>
