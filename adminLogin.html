@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    main {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #ff3366;
+      color: white;
+      border: none;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .error {
+      color: red;
+      margin-bottom: 10px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    header {
+      background-color: #222;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .logo-link {
+      color: #ffcc00;
+      text-decoration: none;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #fff;
+      background-color: #222;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>
+    <a href="../index.html" class="logo-link">Manganaut</a>
+  </h1>
+  <nav>
+    <a href="../index.html">Startseite</a>
+    <a href="productsList.html">Produkte</a>
+    <a href="shoppingCard.html">Warenkorb</a>
+    <a href="accountLogin.html">Mein Konto</a>
+  </nav>
+</header>
+
+<main>
+  <h2>Admin Login</h2>
+  <p class="error" id="error"></p>
+  <input type="text" id="admin-user" placeholder="Admin Benutzername">
+  <input type="password" id="admin-pass" placeholder="Passwort">
+  <button onclick="loginAdmin()">Einloggen</button>
+</main>
+
+<footer>
+  <p>&copy; 2025 Manganaut</p>
+</footer>
+
+<script>
+  function loginAdmin() {
+    const email = document.getElementById("admin-user").value.trim();
+    const password = document.getElementById("admin-pass").value.trim();
+    const error = document.getElementById("error");
+
+    const admin = {
+      email: "admin@manganaut.de",
+      password: "admin123"
+    };
+
+    if (email === admin.email && password === admin.password) {
+      window.location.href = "adminPage.html";
+    } else {
+      error.textContent = "Falscher Benutzername oder Passwort!";
+    }
+  }
+</script>
+</body>
+</html>

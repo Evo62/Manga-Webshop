@@ -2,16 +2,64 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Produkte</title>
+    <title>Produkte & Details</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+    .product-list {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .product-card {
+      border: 1px solid #ccc;
+      padding: 15px;
+      width: 200px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .product-detail {
+      margin-top: 40px;
+      border-top: 2px solid #ff3366;
+      padding-top: 20px;
+    }
+
+    .rating-stars .star {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .star.selected {
+      color: gold;
+    }
+
+    .filter-container {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .filter-container input,
+    .filter-container select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
+
 <header>
+    <h1>
+        <a href="../index.html" class="logo-link">Manganaut</a>
+    </h1>
     <h1>Produktübersicht</h1>
     <nav>
-        <a href="productsList.html" class="active">Produkte</a>
-        <a href="myAccount.html">Mein Konto</a>
-        <a href="myOrders.html">Meine Bestellungen</a>
+        <a href="adminLogin.html">Adminbereich</a>
+        <a href="accountLogin.html">Mein Konto</a>
         <a href="shoppingCard.html">Warenkorb</a>
     </nav>
 </header>
@@ -19,25 +67,114 @@
 <main>
     <h2>Alle verfügbaren Produkte</h2>
 
+    <div class="filter-container">
+        <input type="text" id="productSearch" placeholder="Suche nach Produkt..." oninput="filterProducts()">
+        <select id="categoryFilter" onchange="filterProducts()">
+            <option value="all">Alle Kategorien</option>
+            <option value="manga">Manga</option>
+            <option value="comic">Comic</option>
+            <option value="game">Game</option>
+        </select>
+    </div>
+
     <div class="product-list">
-        <div class="product-card">
-            <img src="../img/naruto1.jpg" alt="Naruto Band 1">
-            <h3>Naruto Band 1</h3>
-            <p>Preis: 9,99 €</p>
-            <button>In den Warenkorb</button>
+        <div class="product-card" data-category="manga" onclick="showDetails('One Piece Band 1', '../img/onepiece1.jpg', '8,99 €', 'Der Auftakt zur legendären Reise von Ruffy zum Piratenkönig!')">
+            <img src="../img/onepiece1.jpg" alt="One Piece">
+            <h3>One Piece Band 1</h3>
+            <p>8,99 €</p>
         </div>
 
-        <div class="product-card">
-            <img src="../img/onepiece1.jpg" alt="One Piece Band 1">
-            <h3>One Piece Band 1</h3>
-            <p>Preis: 8,99 €</p>
-            <button>In den Warenkorb</button>
+        <div class="product-card" data-category="manga" onclick="showDetails('Naruto Band 1', '../img/naruto1.jpg', '9,99 €', 'Der Anfang der Ninja-Saga von Naruto Uzumaki!')">
+            <img src="../img/naruto1.jpg" alt="Naruto">
+            <h3>Naruto Band 1</h3>
+            <p>9,99 €</p>
         </div>
+
+        <div class="product-card" data-category="comic" onclick="showDetails('Spider-Man Comic', '../img/spiderman.jpg', '6,99 €', 'Actionreicher Comic mit Spider-Man.')">
+            <img src="../img/spiderman.jpg" alt="Spider-Man">
+            <h3>Spider-Man Comic</h3>
+            <p>6,99 €</p>
+        </div>
+
+        <div class="product-card" data-category="game" onclick="showDetails('Zelda: Breath of the Wild', '../img/zelda.jpg', '49,99 €', 'Episches Abenteuer in Hyrule.')">
+            <img src="../img/zelda.jpg" alt="Zelda">
+            <h3>Zelda: Breath of the Wild</h3>
+            <p>49,99 €</p>
+        </div>
+    </div>
+
+    <div class="product-detail" id="detailView" style="display:none;">
+        <h2 id="detailTitle"></h2>
+        <img id="detailImage" src="" alt="" style="width: 200px;">
+        <p><strong>Preis:</strong> <span id="detailPrice"></span></p>
+        <p id="detailDesc"></p>
+        <button>In den Warenkorb</button>
+
+        <section class="reviews">
+            <h3>Bewertung schreiben</h3>
+            <div class="rating-stars">
+                <span class="star" onclick="setRating(1)">★</span>
+                <span class="star" onclick="setRating(2)">★</span>
+                <span class="star" onclick="setRating(3)">★</span>
+                <span class="star" onclick="setRating(4)">★</span>
+                <span class="star" onclick="setRating(5)">★</span>
+            </div>
+            <textarea placeholder="Was hältst du davon?"></textarea>
+            <button>Absenden</button>
+        </section>
+
+        <section class="reviews">
+            <h3>Andere Meinungen</h3>
+            <ul>
+                <li><strong>Kunde123:</strong> Super spannend!</li>
+                <li><strong>MangaFan:</strong> Klassiker!</li>
+            </ul>
+        </section>
     </div>
 </main>
 
 <footer>
-    <p>&copy; 2025 MangaStore</p>
+    <p>&copy; 2025 Manganaut</p>
 </footer>
+
+<script>
+  function showDetails(title, img, price, desc) {
+    document.getElementById('detailTitle').textContent = title;
+    document.getElementById('detailImage').src = img;
+    document.getElementById('detailImage').alt = title;
+    document.getElementById('detailPrice').textContent = price;
+    document.getElementById('detailDesc').textContent = desc;
+    document.getElementById('detailView').style.display = 'block';
+  }
+
+  function setRating(rating) {
+    document.querySelectorAll('.star').forEach((star, index) => {
+      star.classList.toggle('selected', index < rating);
+    });
+  }
+
+  function filterProducts() {
+    const searchValue = document.getElementById("productSearch").value.toLowerCase();
+    const categoryValue = document.getElementById("categoryFilter").value;
+    const productCards = document.querySelectorAll(".product-card");
+
+    productCards.forEach(card => {
+      const title = card.querySelector("h3").textContent.toLowerCase();
+      const category = card.dataset.category;
+
+      const matchesSearch = title.includes(searchValue);
+      const matchesCategory = categoryValue === "all" || category === categoryValue;
+
+      if (matchesSearch && matchesCategory) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+    document.getElementById('detailView').style.display = 'none';
+  }
+</script>
+
 </body>
 </html>

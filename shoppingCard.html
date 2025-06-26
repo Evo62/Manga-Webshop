@@ -2,17 +2,21 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Warenkorb</title>
     <link rel="stylesheet" href="css/style.css">
+    <title>Warenkorb</title>
 </head>
 <body>
 <header>
+    <h1>
+        <a href="../index.html" class="logo-link">Manganaut</a>
+    </h1>
     <h1>Warenkorb</h1>
     <nav>
+        <a href="adminLogin.html">Adminbereich</a>
         <a href="productsList.html">Produkte</a>
-        <a href="myAccount.html">Mein Konto</a>
+        <a href="accountLogin.html">Mein Konto</a>
         <a href="myOrders.html">Meine Bestellungen</a>
-        <a href="shoppingCard.html" class="active">Warenkorb</a>
+
     </nav>
 </header>
 
@@ -29,30 +33,56 @@
             <th>Aktion</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="cart-body">
         <tr>
             <td>Naruto Band 1</td>
-            <td><input type="number" value="2" min="1"></td>
-            <td>9,99 €</td>
-            <td>19,98 €</td>
-            <td><button class="danger">Entfernen</button></td>
+            <td><input class="qty" type="number" value="2" min="1" onchange="updateCart()"></td>
+            <td class="price">9.99</td>
+            <td class="total-cell">19.98</td>
+            <td><button class="danger" onclick="removeRow(this)">Entfernen</button></td>
         </tr>
         <tr>
             <td>One Piece Band 1</td>
-            <td><input type="number" value="1" min="1"></td>
-            <td>8,99 €</td>
-            <td>8,99 €</td>
-            <td><button class="danger">Entfernen</button></td>
+            <td><input class="qty" type="number" value="1" min="1" onchange="updateCart()"></td>
+            <td class="price">8.99</td>
+            <td class="total-cell">8.99</td>
+            <td><button class="danger" onclick="removeRow(this)">Entfernen</button></td>
         </tr>
         </tbody>
-    </table>
 
-    <p><strong>Gesamtsumme: 28,97 €</strong></p>
+    </table>
+    <p><strong>Gesamtsumme: <span id="cart-total">28.97</span> €</strong></p>
     <button>Zur Kasse</button>
 </main>
 
 <footer>
-    <p>&copy; 2025 MangaStore</p>
+    <p>&copy; 2025 Manganaut</p>
 </footer>
+<script>
+  function updateCart() {
+    let totalSum = 0;
+    const rows = document.querySelectorAll("#cart-body tr");
+
+    rows.forEach(row => {
+      const qty = row.querySelector(".qty").value;
+      const price = parseFloat(row.querySelector(".price").textContent);
+      const rowTotal = (qty * price).toFixed(2);
+      row.querySelector(".total-cell").textContent = rowTotal;
+      totalSum += parseFloat(rowTotal);
+    });
+
+    document.getElementById("cart-total").textContent = totalSum.toFixed(2);
+  }
+
+  function removeRow(button) {
+    const row = button.closest("tr");
+    row.remove();
+    updateCart();
+  }
+
+  // Initial aufrufen
+  updateCart();
+</script>
+
 </body>
 </html>
